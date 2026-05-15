@@ -1,4 +1,4 @@
-# 
+# exclusive meme coin sniper bot | multi-chain-support + low-cap-gem-detection is the best meme coin sniper bot, featuring multi-chain-support and low-cap-gem-detection. Fast,
 
 
 
